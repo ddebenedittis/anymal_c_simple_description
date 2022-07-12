@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="ros2_control_joint" params="joint_name">
+        <joint name="${joint_name}">
+            <command_interface name="effort">
+                <param name="min">-1000</param>
+                <param name="max">1000</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+    </xacro:macro>
+
+
+    <!-- IMU sensor -->
+    <gazebo reference="base">
+        <sensor name="imu_sensor" type="imu">
+            <always_on>true</always_on>
+            <update_rate>30</update_rate>
+            <!-- <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+                <ros>
+                    <namespace>/imu</namespace>
+                    <remapping>~/out:=data</remapping>
+                </ros>
+                <frame_name>base</frame_name>
+                <initial_orientation_as_reference>false</initial_orientation_as_reference>
+            </plugin>
+
+            <imu>
+                <angular_velocity>
+                    <x>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>2e-4</stddev>
+                        <bias_mean>0.0000075</bias_mean>
+                        <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>2e-4</stddev>
+                        <bias_mean>0.0000075</bias_mean>
+                        <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>2e-4</stddev>
+                        <bias_mean>0.0000075</bias_mean>
+                        <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </z>
+                </angular_velocity>
+                <linear_acceleration>
+                    <x>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>1.7e-2</stddev>
+                        <bias_mean>0.1</bias_mean>
+                        <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>1.7e-2</stddev>
+                        <bias_mean>0.1</bias_mean>
+                        <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>1.7e-2</stddev>
+                        <bias_mean>0.1</bias_mean>
+                        <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </z>
+                </linear_acceleration>
+            </imu> -->
+        </sensor>
+    </gazebo>
+
+
+    <!-- ros2_control plugin -->
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <xacro:ros2_control_joint joint_name="LF_HAA"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="LF_HFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="LF_KFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="LH_HAA"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="LH_HFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="LH_KFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RF_HAA"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RF_HFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RF_KFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RH_HAA"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RH_HFE"></xacro:ros2_control_joint>
+        <xacro:ros2_control_joint joint_name="RH_KFE"></xacro:ros2_control_joint>
+        <sensor name="imu_sensor">
+            <state_interface name="orientation.x"/>
+            <state_interface name="orientation.y"/>
+            <state_interface name="orientation.z"/>
+            <state_interface name="orientation.w"/>
+            <state_interface name="angular_velocity.x"/>
+            <state_interface name="angular_velocity.y"/>
+            <state_interface name="angular_velocity.z"/>
+            <state_interface name="linear_acceleration.x"/>
+            <state_interface name="linear_acceleration.y"/>
+            <state_interface name="linear_acceleration.z"/>
+        </sensor>
+    </ros2_control>
+
+
+    <!-- effort_controller -->
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(find robot_control)/config/anymal_controller_effort.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+</robot>

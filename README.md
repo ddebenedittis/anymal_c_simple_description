@@ -1,4 +1,8 @@
 # ANYmal C Robot Description (URDF)
+## Changes
+- Package is for ROS 2 now
+- Added .xacro files for gazebo simulation purposes. These add imu sensors and joint torques controllers
+
 ## Overview
 
 This package contains a simplified robot description (URDF) of the [ANYmal C robot](https://www.anybotics.com/anymal) developed by [ANYbotics](https://www.anybotics.com).

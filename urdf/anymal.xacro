@@ -3,7 +3,17 @@
 <!--   Copyright 2020 ANYbotics, https://www.anybotics.com                               -->
 <!-- =================================================================================== -->
 <!-- This file contains the description of the ANYmal C robot. -->
-<robot name="anymal">
+<robot name="anymal" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Constants for robot dimensions -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+
+    <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+    <xacro:include filename="$(find anymal_c_simple_description)/urdf/anymal_gazebo.xacro" />
+    <!-- Import Rviz colors -->
+    <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro" />
+
+
     <!-- Base link -->
     <link name="base">
         <visual>
@@ -1596,4 +1606,6 @@
             <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001"/>
         </inertial>
     </link>
+    
+
 </robot>

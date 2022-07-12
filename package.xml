@@ -1,19 +1,25 @@
 <?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
 
-<package format="2">
+    <name>anymal_c_simple_description</name>
+    <version>1.0.7</version>
+    <description>ANYmal C Description Package</description>
 
-  <name>anymal_c_simple_description</name>
-  <version>1.0.7</version>
-  <description>ANYmal C Description Package</description>
+    <maintainer email="lisler@anybotics.com">Linus Isler</maintainer>
+    <maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
+    <license>BSD-3</license>
+    <author email="lisler@anybotics.com">Linus Isler</author>
 
-  <license>BSD-3</license>
+    <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <author email="lisler@anybotics.com">Linus Isler</author>
-  <maintainer email="lisler@anybotics.com">Linus Isler</maintainer>
-  <maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
+    <test_depend>ament_lint_auto</test_depend>
+    <test_depend>ament_lint_common</test_depend>
 
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <test_depend>roslaunch</test_depend>
+    <export>
+        <build_type>ament_cmake</build_type>
+        <gazebo_ros gazebo_plugin_path="${prefix}/lib"
+                    gazebo_model_path="${prefix}/.." /> 
+    </export>
 
 </package>
