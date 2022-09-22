@@ -76,6 +76,10 @@ whole_body_controller:
         robot_name: anymal_c
         sample_time: 0.0025
 
+        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
+
+        initialization_counter: 1000    # ! Must be the same as the initialization_counter in the planner
+
         joints:
             - LF_HAA
             - LF_HFE
@@ -134,6 +138,8 @@ whole_body_controller:
 
 planner:
     ros__parameters:
+        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
+        initialization_counter: 1000    # ! Must be the same as the initialization_counter in the planner
         sample_time: 0.005
         init_phase: 0.2
         all_feet_names:
