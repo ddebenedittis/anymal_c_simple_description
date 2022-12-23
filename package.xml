@@ -5,10 +5,13 @@
     <name>anymal_c_simple_description</name>
     <version>1.0.7</version>
     <description>ANYmal C Description Package</description>
-
+    <maintainer email="davide.debenedittis@gmail.com">Davide De Benedittis</maintainer>
     <maintainer email="lisler@anybotics.com">Linus Isler</maintainer>
     <maintainer email="rdiethelm@anybotics.com">Remo Diethelm</maintainer>
+
     <license>BSD-3</license>
+
+    <url>https://github.com/ddebenedittis/anymal_c_simple_description</url>
     <author email="lisler@anybotics.com">Linus Isler</author>
 
     <buildtool_depend>ament_cmake</buildtool_depend>

@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.5.1)
+# ==============================================================================
+#                             PROJECT CONFIGURATION                             
+# ==============================================================================
+
+cmake_minimum_required(VERSION 3.5)
 project(anymal_c_simple_description)
 
 # Default to C99
@@ -17,12 +21,26 @@ endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+
+
+# ==============================================================================
+#                               FIND DEPENDENCIES                               
+# ==============================================================================
+
 find_package(ament_cmake REQUIRED)
+
+
+
+# ==============================================================================
+#                                    INSTALL                                    
+# ==============================================================================
 
 install(
     DIRECTORY config launch meshes urdf
     DESTINATION share/${PROJECT_NAME}
 )
+
+
 
 if(BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)

@@ -80,6 +80,9 @@ whole_body_controller:
 
         initialization_counter: 1000    # ! Must be the same as the initialization_counter in the planner
 
+        PD_proportional: 100.
+        PD_derivative: 10.
+
         joints:
             - LF_HAA
             - LF_HFE
@@ -152,9 +155,9 @@ planner:
             - RH
             - RF
             - LH
-        cycle_duration: 4.
+        cycle_duration: 3.0
         step_duty_factor: 0.7
-        step_length: 0.14
+        step_length: 0.15
         step_height: 0.1
         desired_foot_penetration: 0.05
         desired_base_height: 0.47
