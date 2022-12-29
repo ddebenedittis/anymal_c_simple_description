@@ -48,7 +48,7 @@
     </ros2_control>
 
 
-    <!-- effort_controller -->
+    <!-- Effort_controller -->
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <parameters>$(find anymal_c_simple_description)/config/anymal_controller_effort.yaml</parameters>

@@ -1,7 +1,7 @@
 # ANYmal C Robot Description (URDF)
 ## Changes
-- Package is for ROS 2 now
-- Added .xacro files for gazebo simulation purposes. These add imu sensors and joint torques controllers
+- The package is for ROS 2 now: updated the launch file and the rviz config file, changed the command to find the meshes in the .xacro, and changed the `package.xml` and `CMakeLists.txt` files.
+- Added a .xacro file for gazebo simulation purposes (`anymal_gazebo.xacro`). This file adds the ros2_control plugin, an imu sensor and the joint torques controller.
 
 ## Overview
 
@@ -11,7 +11,7 @@ The extended ANYmal C robot description, simulation, and control software is ava
 
 **Author & Maintainer: Linus Isler, [ANYbotics](https://www.anybotics.com)**
 
-[![ANYmal C Robot Description](doc/anymal_c_rviz.png)](doc/anymal_c_rviz.png)
+![ANYmal C Robot Description](doc/anymal_c_rviz.png)
 
 ## License
 
@@ -20,16 +20,10 @@ This software is released under a [BSD 3-Clause license](LICENSE).
 
 ## Usage
 
-Load the ANYmal description to the ROS parameter server:
+To visualize and debug the robot description, start the standalone visualization (note that you have to provide the following additional dependencies: `joint_state_publisher`, `joint_state_publisher_gui`, `robot_state_publisher`, `rviz2`, `xacro`):
 
-    roslaunch anymal_c_simple_description load.launch
-
-To visualize and debug the robot description, start the standalone visualization (note that you have to provide the following additional dependencies: `joint_state_publisher`, `robot_state_publisher`, `rviz`):
-
-    roslaunch anymal_c_simple_description standalone.launch
+    ros2 launch anymal_c_simple_description standalone.launch.py
 
 ### Launch files
 
-* **`load.launch`:** Loads the URDF to the parameter server. Meant to be included in higher level launch files.
-
-* **`standalone.launch`:** A standalone launch file that starts RViz and a joint state publisher to debug the description.
+* **`standalone.launch`:** A standalone launch file that starts RViz and a joint state publisher gui to debug the description.

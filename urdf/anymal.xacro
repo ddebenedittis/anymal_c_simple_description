@@ -9,7 +9,7 @@
     <xacro:property name="PI" value="3.1415926535897931"/>
 
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-    <xacro:include filename="$(find anymal_c_simple_description)/urdf/anymal_control.xacro" />
+    <xacro:include filename="$(find anymal_c_simple_description)/urdf/anymal_gazebo.xacro" />
     <!-- Import Rviz colors -->
     <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro" />
 
