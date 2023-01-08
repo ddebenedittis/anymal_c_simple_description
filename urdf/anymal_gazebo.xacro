@@ -74,56 +74,131 @@
                 <angular_velocity>
                     <x>
                         <noise type="gaussian">
-                        <mean>0.0</mean>
-                        <stddev>2e-4</stddev>
-                        <bias_mean>0.00000</bias_mean>
-                        <bias_stddev>0.000000</bias_stddev>
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.00000</bias_mean>
+                            <bias_stddev>0.000000</bias_stddev>
                         </noise>
                     </x>
                     <y>
                         <noise type="gaussian">
-                        <mean>-0.0</mean>
-                        <stddev>2e-4</stddev>
-                        <bias_mean>0.00000</bias_mean>
-                        <bias_stddev>0.000000</bias_stddev>
+                            <mean>-0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.00000</bias_mean>
+                            <bias_stddev>0.000000</bias_stddev>
                         </noise>
                     </y>
                     <z>
                         <noise type="gaussian">
-                        <mean>0.0</mean>
-                        <stddev>2e-4</stddev>
-                        <bias_mean>0.00000</bias_mean>
-                        <bias_stddev>0.000000</bias_stddev>
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.00000</bias_mean>
+                            <bias_stddev>0.000000</bias_stddev>
                         </noise>
                     </z>
                 </angular_velocity>
                 <linear_acceleration>
                     <x>
                         <noise type="gaussian">
-                        <mean>0.0</mean>
-                        <stddev>1.7e-3</stddev>
-                        <bias_mean>0.0</bias_mean>
-                        <bias_stddev>0.00</bias_stddev>
+                            <mean>0.0</mean>
+                            <stddev>1.7e-3</stddev>
+                            <bias_mean>0.0</bias_mean>
+                            <bias_stddev>0.00</bias_stddev>
                         </noise>
                     </x>
                     <y>
                         <noise type="gaussian">
-                        <mean>-0.0</mean>
-                        <stddev>1.7e-3</stddev>
-                        <bias_mean>0.0</bias_mean>
-                        <bias_stddev>0.00</bias_stddev>
+                            <mean>-0.0</mean>
+                            <stddev>1.7e-3</stddev>
+                            <bias_mean>0.0</bias_mean>
+                            <bias_stddev>0.00</bias_stddev>
                         </noise>
                     </y>
                     <z>
                         <noise type="gaussian">
-                        <mean>0.0</mean>
-                        <stddev>1.7e-3</stddev>
-                        <bias_mean>0.0</bias_mean>
-                        <bias_stddev>0.00</bias_stddev>
+                            <mean>0.0</mean>
+                            <stddev>1.7e-3</stddev>
+                            <bias_mean>0.0</bias_mean>
+                            <bias_stddev>0.00</bias_stddev>
                         </noise>
                     </z>
                 </linear_acceleration>
             </imu>
+        </sensor>
+    </gazebo>
+
+
+    <!-- Contact sensors for the four feet -->
+    <!-- LF_FOOT -->
+    <gazebo reference="LF_FOOT">
+        <sensor name="LF_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>LF_SHANK_fixed_joint_lump__LF_FOOT_collision_3</collision>
+            </contact>
+            <plugin name="LF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/LF</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- RF_FOOT -->
+    <gazebo reference="RF_FOOT">
+        <sensor name="RF_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>RF_SHANK_fixed_joint_lump__RF_FOOT_collision_3</collision>
+            </contact>
+            <plugin name="RF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/RF</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- LH_FOOT -->
+    <gazebo reference="LH_FOOT">
+        <sensor name="LH_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>LH_SHANK_fixed_joint_lump__LH_FOOT_collision_3</collision>
+            </contact>
+            <plugin name="LH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/LH</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <!-- RH_FOOT -->
+    <gazebo reference="RH_FOOT">
+        <sensor name="RH_FOOT_contct_sensor" type="contact">
+            <always_on>true</always_on>
+            <update_rate>25.0</update_rate>
+            <contact>
+                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
+                <collision>RH_SHANK_fixed_joint_lump__RH_FOOT_collision_3</collision>
+            </contact>
+            <plugin name="RH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
+                <ros>
+                    <!-- <namespace>demo</namespace> -->
+                    <remapping>bumper_states:=/contact_force_sensors/RH</remapping>
+                </ros>
+                <frame_name>world</frame_name>
+            </plugin>
         </sensor>
     </gazebo>
 

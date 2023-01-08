@@ -76,12 +76,13 @@ whole_body_controller:
         robot_name: anymal_c
         sample_time: 0.0025
 
-        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
-
-        initialization_counter: 1000    # ! Must be the same as the initialization_counter in the planner
+        use_estimator: false        # ! Must be the same as the use_estimator in the planner
+        initialization_time: 1.     # ! Must be the same as the initialization_time in the planner
 
         PD_proportional: 100.
         PD_derivative: 10.
+
+        logging: true
 
         joints:
             - LF_HAA
@@ -97,6 +98,7 @@ whole_body_controller:
             - RH_HFE
             - RH_KFE
 
+        contact_constraint_type: rigid
         tau_max: 80.
         mu: 0.8
         Fn_max: 350.
@@ -141,15 +143,11 @@ whole_body_controller:
 
 planner:
     ros__parameters:
-        use_estimator: false            # ! Must be the same as the initialization_counter in the planner
-        initialization_counter: 1000    # ! Must be the same as the initialization_counter in the planner
+        use_estimator: false            # ! Must be the same as the use_estimator in the whole_body_controller
+        initialization_time: 1.         # ! Must be the same as the initialization_time in the whole_body_controller
+        
         sample_time: 0.005
         init_phase: 0.2
-        all_feet_names:
-            - LF
-            - RF
-            - LH
-            - RH
         gait_pattern:
             - LF
             - RH
