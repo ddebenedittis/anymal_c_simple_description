@@ -835,12 +835,12 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <collision>
+        <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0.168985"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
-        </collision>
+        </collision> -->
         <!-- Foot collision -->
         <collision>
             <origin xyz="0 0 0.0225"/>
@@ -1079,12 +1079,12 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <collision>
+        <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0.168985"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
-        </collision>
+        </collision> -->
         <!-- Foot collision -->
         <collision>
             <origin xyz="0 0 0.0225"/>
@@ -1323,12 +1323,12 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <collision>
+        <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0.168985"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
-        </collision>
+        </collision> -->
         <!-- Foot collision -->
         <collision>
             <origin xyz="0 0 0.0225"/>
@@ -1567,12 +1567,12 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <collision>
+        <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0.168985"/>
             <geometry>
                 <cylinder length="0.282504" radius="0.0175"/>
             </geometry>
-        </collision>
+        </collision> -->
         <!-- Foot collision -->
         <collision>
             <origin xyz="0 0 0.0225"/>

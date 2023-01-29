@@ -9,6 +9,8 @@ This package contains a simplified robot description (URDF) of the [ANYmal C rob
 
 The extended ANYmal C robot description, simulation, and control software is available exclusively to members of the [ANYmal Research community](https://www.anymal-research.org). For more information and membership applications, contact info@anybotics.com.
 
+The shanks collisions have been removed, avoiding double collisions in Gazebo in the case of very soft terrains.
+
 **Author & Maintainer: Linus Isler, [ANYbotics](https://www.anybotics.com)**
 
 ![ANYmal C Robot Description](doc/anymal_c_rviz.png)

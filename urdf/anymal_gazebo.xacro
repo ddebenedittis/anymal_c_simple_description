@@ -136,7 +136,7 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>LF_SHANK_fixed_joint_lump__LF_FOOT_collision_3</collision>
+                <collision>LF_SHANK_fixed_joint_lump__LF_FOOT_collision_2</collision>
             </contact>
             <plugin name="LF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -154,7 +154,7 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>RF_SHANK_fixed_joint_lump__RF_FOOT_collision_3</collision>
+                <collision>RF_SHANK_fixed_joint_lump__RF_FOOT_collision_2</collision>
             </contact>
             <plugin name="RF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -172,7 +172,7 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>LH_SHANK_fixed_joint_lump__LH_FOOT_collision_3</collision>
+                <collision>LH_SHANK_fixed_joint_lump__LH_FOOT_collision_2</collision>
             </contact>
             <plugin name="LH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
@@ -190,7 +190,7 @@
             <update_rate>25.0</update_rate>
             <contact>
                 <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
-                <collision>RH_SHANK_fixed_joint_lump__RH_FOOT_collision_3</collision>
+                <collision>RH_SHANK_fixed_joint_lump__RH_FOOT_collision_2</collision>
             </contact>
             <plugin name="RH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
