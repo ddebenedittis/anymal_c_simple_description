@@ -13,6 +13,10 @@
     <!-- Import Rviz colors -->
     <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro" />
 
+    <gazebo>
+        <static>false</static>
+    </gazebo>
+
 
     <!-- Base link -->
     <link name="base">
