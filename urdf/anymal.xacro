@@ -5,13 +5,18 @@
 <!-- This file contains the description of the ANYmal C robot. -->
 <robot name="anymal" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:arg name="use_gazebo" default="True"/>
+    <xacro:property name="use_gazebo" default="$(arg use_gazebo)"/>
+
     <!-- Constants for robot dimensions -->
     <xacro:property name="PI" value="3.1415926535897931"/>
 
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-    <xacro:include filename="$(find anymal_c_simple_description)/urdf/anymal_gazebo.xacro" />
+    <xacro:if value="${use_gazebo}">
+        <xacro:include filename="$(find anymal_c_simple_description)/urdf/anymal_gazebo.xacro"/>
+    </xacro:if>
     <!-- Import Rviz colors -->
-    <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro" />
+    <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro"/>
 
     <gazebo>
         <static>false</static>
