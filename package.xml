@@ -2,8 +2,8 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 
-    <name>anymal_c_simple_description</name>
-    <version>1.0.7</version>
+  <name>anymal_c_simple_description</name>
+    <version>1.0.12</version>
     <description>ANYmal C Description Package</description>
     <maintainer email="davide.debenedittis@gmail.com">Davide De Benedittis</maintainer>
     <maintainer email="lisler@anybotics.com">Linus Isler</maintainer>
