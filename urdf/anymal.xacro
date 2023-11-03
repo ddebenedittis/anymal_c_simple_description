@@ -8,8 +8,8 @@
     <xacro:arg name="use_gazebo" default="True"/>
     <xacro:property name="use_gazebo" default="$(arg use_gazebo)"/>
 
-    <xacro:arg name="remove_collisions" default="False"/>
-    <xacro:property name="remove_collisions" default="$(arg remove_collisions)"/>
+    <xacro:arg name="remove_shank_collisions" default="False"/>
+    <xacro:property name="remove_shank_collisions" default="$(arg remove_shank_collisions)"/>
 
     <!-- Constants for robot dimensions -->
     <xacro:property name="PI" value="3.1415926535897931"/>
@@ -847,7 +847,7 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <xacro:unless value="${remove_collisions}">
+        <xacro:unless value="${remove_shank_collisions}">
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0.168985"/>
                 <geometry>
@@ -1093,7 +1093,7 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <xacro:unless value="${remove_collisions}">
+        <xacro:unless value="${remove_shank_collisions}">
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0.168985"/>
                 <geometry>
@@ -1339,7 +1339,7 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <xacro:unless value="${remove_collisions}">
+        <xacro:unless value="${remove_shank_collisions}">
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0.168985"/>
                 <geometry>
@@ -1585,7 +1585,7 @@
             </geometry>
         </visual>
         <!-- Adapter collision -->
-        <xacro:unless value="${remove_collisions}">
+        <xacro:unless value="${remove_shank_collisions}">
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0.168985"/>
                 <geometry>
