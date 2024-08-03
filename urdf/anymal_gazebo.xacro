@@ -14,7 +14,6 @@
     </xacro:macro>
 
 
-    <!-- ros2_control plugin -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -48,7 +47,6 @@
     </ros2_control>
 
 
-    <!-- Effort_controller -->
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <parameters>$(find robot_control)/config/gazebo/anymal_c_controller_effort.yaml</parameters>
@@ -56,19 +54,10 @@
     </gazebo>
 
 
-    <!-- IMU sensor -->
     <gazebo reference="base">
         <sensor name="imu_sensor" type="imu">
             <always_on>true</always_on>
             <update_rate>400</update_rate>
-            <!-- <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
-                <ros>
-                    <namespace>/imu</namespace>
-                    <remapping>~/out:=data</remapping>
-                </ros>
-                <frame_name>base</frame_name>
-                <initial_orientation_as_reference>true</initial_orientation_as_reference>
-            </plugin> -->
 
             <imu>
                 <angular_velocity>
@@ -128,14 +117,11 @@
     </gazebo>
 
 
-    <!-- Contact sensors for the four feet -->
-    <!-- LF_FOOT -->
     <gazebo reference="LF_FOOT">
         <sensor name="LF_FOOT_contct_sensor" type="contact">
             <always_on>true</always_on>
             <update_rate>25.0</update_rate>
             <contact>
-                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
                 <xacro:if value="${remove_shank_collisions}">
                     <collision>LF_SHANK_fixed_joint_lump__LF_FOOT_collision_2</collision>
                 </xacro:if>
@@ -145,20 +131,17 @@
             </contact>
             <plugin name="LF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
-                    <!-- <namespace>demo</namespace> -->
                     <remapping>bumper_states:=/contact_force_sensors/LF</remapping>
                 </ros>
                 <frame_name>world</frame_name>
             </plugin>
         </sensor>
     </gazebo>
-    <!-- RF_FOOT -->
     <gazebo reference="RF_FOOT">
         <sensor name="RF_FOOT_contct_sensor" type="contact">
             <always_on>true</always_on>
             <update_rate>25.0</update_rate>
             <contact>
-                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
                 <xacro:if value="${remove_shank_collisions}">
                     <collision>RF_SHANK_fixed_joint_lump__RF_FOOT_collision_2</collision>
                 </xacro:if>
@@ -168,20 +151,17 @@
             </contact>
             <plugin name="RF_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
-                    <!-- <namespace>demo</namespace> -->
                     <remapping>bumper_states:=/contact_force_sensors/RF</remapping>
                 </ros>
                 <frame_name>world</frame_name>
             </plugin>
         </sensor>
     </gazebo>
-    <!-- LH_FOOT -->
     <gazebo reference="LH_FOOT">
         <sensor name="LH_FOOT_contct_sensor" type="contact">
             <always_on>true</always_on>
             <update_rate>25.0</update_rate>
             <contact>
-                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
                 <xacro:if value="${remove_shank_collisions}">
                     <collision>LH_SHANK_fixed_joint_lump__LH_FOOT_collision_2</collision>
                 </xacro:if>
@@ -191,20 +171,17 @@
             </contact>
             <plugin name="LH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
-                    <!-- <namespace>demo</namespace> -->
                     <remapping>bumper_states:=/contact_force_sensors/LH</remapping>
                 </ros>
                 <frame_name>world</frame_name>
             </plugin>
         </sensor>
     </gazebo>
-    <!-- RH_FOOT -->
     <gazebo reference="RH_FOOT">
         <sensor name="RH_FOOT_contct_sensor" type="contact">
             <always_on>true</always_on>
             <update_rate>25.0</update_rate>
             <contact>
-                <!-- gz sdf -p turtlebot3_burger.urdf.xacro and look for the name of the desired collision element. -->
                 <xacro:if value="${remove_shank_collisions}">
                     <collision>RH_SHANK_fixed_joint_lump__RH_FOOT_collision_2</collision>
                 </xacro:if>
@@ -214,7 +191,6 @@
             </contact>
             <plugin name="RH_FOOT_bumper" filename="libgazebo_ros_bumper.so">
                 <ros>
-                    <!-- <namespace>demo</namespace> -->
                     <remapping>bumper_states:=/contact_force_sensors/RH</remapping>
                 </ros>
                 <frame_name>world</frame_name>
