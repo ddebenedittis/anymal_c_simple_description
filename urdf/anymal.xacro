@@ -11,7 +11,11 @@
     <xacro:arg name="remove_shank_collisions" default="False"/>
     <xacro:property name="remove_shank_collisions" default="$(arg remove_shank_collisions)"/>
 
-    <!-- Constants for robot dimensions -->
+    <xacro:arg name="static" default="False"/>
+
+    <xacro:arg name="use_gazebo" default="True"/>
+    <xacro:property name="use_gazebo" default="$(arg use_gazebo)"/>
+
     <xacro:property name="PI" value="3.1415926535897931"/>
 
     <!-- Import all Gazebo-customization elements, including Gazebo colors -->
@@ -21,9 +25,11 @@
     <!-- Import Rviz colors -->
     <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro"/>
 
-    <gazebo>
-        <static>false</static>
+    <xacro:if value="$(arg debug)">
+    <gazebo reference="base">
+        <kinematic>false</kinematic>
     </gazebo>
+    </xacro:if>
 
 
     <!-- Base link -->
