@@ -16,7 +16,7 @@
     </xacro:if>
     <xacro:include filename="$(find anymal_c_simple_description)/urdf/materials.xacro"/>
 
-    <xacro:if value="$(arg debug)">
+    <xacro:if value="$(arg static)">
         <gazebo reference="base">
             <kinematic>false</kinematic>
         </gazebo>
